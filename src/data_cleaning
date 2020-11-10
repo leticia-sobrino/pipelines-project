@@ -1,0 +1,89 @@
+### FUNCIONES PARA LIMPIAR LOS DATOS ###
+
+###################### API CLEANING ########################
+
+#Librerias utilizadas
+
+import os
+from dotenv import load_dotenv
+import requests
+import re
+load_dotenv()
+import pandas as pd
+
+
+# Sacar el precio total de cada oferta
+
+nueva_lista = []
+for i in list(df_hotel_offers.offers):
+    nueva_lista.append((i[0]['price']['total']))
+
+df_precios = pd.DataFrame(nueva_lista)
+df_precios
+
+
+# SACAMOS LOS CHECKIN DATES DE CADA OFERTA 
+
+checkIn_list =[]
+for i in list(df_hotel_offers.offers):
+    checkIn_list.append((i[0]['checkInDate']))
+
+df_checkIn = pd.DataFrame(checkIn_list)
+df_checkIn
+
+
+# SACAMOS LOS CHECKOUT DATES DE CADA OFERTA
+
+checkOut_list =[]
+for i in list(df_hotel_offers.offers):
+    checkOut_list.append((i[0]['checkOutDate']))
+
+df_checkOut = pd.DataFrame(checkOut_list)
+df_checkOut
+
+
+# TYPE ROOM
+
+type_room =[]
+for i in list(df_hotel_offers.offers):
+    type_room.append((i[0]['room']['typeEstimated']['category']))
+
+df_type_room = pd.DataFrame(type_room)
+df_type_room
+
+
+# NUMERO DE GUESTS POR CADA ROOM
+nº_guests =[]
+for i in list(df_hotel_offers.offers):
+    nº_guests.append((i[0]['guests']['adults']))
+
+df_nº_guests = pd.DataFrame(nº_guests)
+df_nº_guests
+
+
+####################
+#### API LIMPIA ####
+####################
+
+### CONCATENAMOS DF
+clean = pd.concat([df_checkIn, df_checkOut, df_precios, df_type_room, df_nº_guests], axis=1)
+clean
+
+### API FINAL
+clean.columns = ['checkInDate', 'checkOutDate', 'TotalPrice', 'TypeRoom', 'Guests/room']
+clean
+
+### PRECIO MEDIO DE OFERTAS
+clean["TotalPrice"] = clean["TotalPrice"].astype(float)
+clean["TotalPrice"]
+
+clean["TotalPrice"].mean()
+
+
+
+
+###################### DATASET #########################
+
+
+
+

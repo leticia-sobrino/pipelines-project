@@ -1,8 +1,16 @@
-.env
+/env...
+
+#calendar.csv
+# listings.csv
+# data/cleansed...
+
+C:\Users\Leticia\Desktop\Ironhack-repos\pipelines-project\data\cleansed
+C:\Users\Leticia\Desktop\Ironhack-repos\pipelines-project\data\listings
 
 
 
 ### AUTORIZACION DE YOUTUBE ###
+
 
 "type": "service_account",
   "project_id": "plexiform-bot-295016",

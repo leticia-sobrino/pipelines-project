@@ -1,0 +1,28 @@
+### FUNCIONES UTILIZADAS PARA CREAR LOS GRÁFICOS ###
+
+## LIBRERIAS UTILIZADAS
+import sys 
+import sys as gr
+import pandas as pd
+import seaborn as sns
+import matplotlib as plt
+
+
+########## GRAFICAS API ##########
+
+GRAFICA 1 : sns.histplot(x = df_clean.TotalPrice, y = df_clean.TypeRoom, palette="Blues")
+GRAFICA 2: sns.histplot(x=df_clean.TotalPrice, hue=df_clean.TypeRoom, element="step")
+GRAFICA 3: sns.histplot(x=df_clean.TotalPrice, element="step", fill=False, cumulative=True)
+
+
+########## GRAFICAS DATASET ##########
+
+GRAFICA 4: sns.histplot(x= df_2019.price, y= df_2019.date)
+GRAFICA 5: sns.histplot(x= df_SPT_19.P_SPT2019, y= df_SPT_19.SPT2019)
+
+
+########## RELACION GRÁFICA ENTRE API Y DATASET#########
+
+GRAFICA 6: sns.histplot(x=df_clean.TotalPrice, hue=df_SPT_19.P_SPT2019, fill= False)
+GRAFICA 7: sns.histplot(x=df_clean.TotalPrice, y=df_SPT_19.P_SPT2019, palette = 'Blues')
+
